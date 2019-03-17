@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.crumbs{
+  width:100%;
+  height: 42px;
+  line-height: 42px;
+   background: #F2F2F2;
+    border-bottom: 1px solid #dfdfdf;
+    color: #f2f2f2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 42px;
+    overflow: hidden;
+}
+.crumbs view{
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    padding: 0 17px 0 8px;
+    overflow: hidden;
+    font-size: 16px;
+    color: #1a1a1a;
+    background: url(../../images/site_icon.png) no-repeat right center;
+    background-size: auto 42px;
+}
+.crumbs image{
+  width:35px;
+  height:25px;
+  position: relative;
+  top:5px;
+}
+#grade{
+    background-size: 56px 65px;
+    width: 56px;
+    height: 65px;
+    display: inline-block;
+    position: absolute;
+    right: 24px;
+    top: 92px;
+    background: url(../../images/grade_bg.png) no-repeat;
+}
+#grade.excellent{
+    background-position:0 0;
+}
+#grade.good{
+    background-position:0 -102px;
+}
+#grade.middle{
+    background-position:0 -211px;
+}
+#grade.bad{
+    background-position:0 -328px;
+}
+.text{
+  padding:15px 10px;
+}
+.title{
+    color: #000;
+    font-size: 24px;
+    line-height: 30px;
+    padding-bottom: 5px;
+    font-weight: 700;
+    margin-top:5px;
+}
+.info{
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+.author{
+  color: #444;
+}
+.time{
+    color: #ccc;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.content view{
+    color: #444;
+    line-height: 26px;
+    font-size: 16px;
+    padding-bottom: 12px;
+    text-indent: 20px;
+}
+.comment view{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom:10px;
+}
+.comment text{
+    color: #f00;
+    font-size: 20px;
+}
+.navgitor{
+  border-top:8px solid #f2f2f2;
+  padding:10px;
+
+}
+.navgitor view{
+      display: block;
+    background-size: 9px;
+    margin-bottom: 2px;
+    line-height: 25px;
+}
+.navgitor text{
+  color: #0086c5;
+}

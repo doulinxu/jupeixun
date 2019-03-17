@@ -1,0 +1,63 @@
+<scroll-view 
+  class="container"
+  style="height: 100%;"
+  scroll-y
+>
+    <image class="logo" src="{{picUrl.logo}}"></image>  
+    <image class="banner" src="{{picUrl.banner}}"></image>
+   <view class="category">
+      <view class="primary" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        小学作文
+      </view>
+      <view class="junior" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        初中作文
+      </view>
+      <view class="high" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        高中作文
+      </view>
+      <view class="unit" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        单元作文
+      </view>
+      <view class="english" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        英语作文
+      </view>
+      <view class="source" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        作文素材
+      </view>
+      <view class="guidance" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        写作指导
+      </view>
+      <view class="meterial" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+        写作素材
+      </view>
+    </view>
+    <view>
+      <view s-for="classes" class="classes-item">
+          <view class="classes-title">
+            <text class="title-text">{{item.title}}</text>
+            <text class="more" bindtap="changeUrl" data-pointUrl="/pages/list/list">更多</text>
+          </view>
+          <view class="classes-banner" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+              <view class="banner-item" s-for="item.banner">
+                <image mode="widthFix" class="item-img" src="{{item.bannerUrl}}"></image>
+                <text class="item-text">{{item.bannerText}}</text>
+              </view>
+              
+          </view>
+          <view>
+                <view s-for="item.list" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+                  <view class="classes-list">
+                      <view class="list-title">{{item.listTitle}}</view>
+                      <view class="list-time">{{item.listTime}}</view>
+                  </view>
+                </view>
+              </view>
+      </view>
+      <view class="footer">
+         <view>
+           <image src="../../images/m_logo.png"></image>
+            聚培训作文
+         </view>
+      </view>
+    </view>
+</scroll-view>

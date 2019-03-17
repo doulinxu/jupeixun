@@ -1,0 +1,56 @@
+<scroll-view 
+  class="container"
+  style="height: 100%;"
+  scroll-y
+>
+   <view class="crumbs">
+      <view class="logo">
+          <image src="../../images/m_logo.png"></image>
+      </view>
+      <view>
+        作文
+      </view>
+      <view>
+        {{crumbs.name}}
+      </view>
+   </view>
+   <view class="text">
+     <view id="grade" class="{{text.grade}}">
+
+     </view>
+    <view class="title">
+        {{text.title}}
+    </view>
+    <view class="info">
+        <text class="time">{{text.info.time}}<text>
+        <text class="author">{{text.info.author}}</text>
+    </view>
+    <view class="content">
+      <view s-for="text.content">
+          {{item}}
+      </view>
+    </view>
+    <view class="comment">
+       <view>
+         评语：
+       </view>
+       <text>
+         {{text.comment}}
+       </text>
+    </view>
+   </view>
+   <view class="navgitor">
+     <view>
+       上一篇：
+       <text>
+         {{text.prev.title}}
+       </text>
+     </view>
+     <view>
+       下一篇：
+       <text>
+         {{text.next.title}}
+       </text>
+     </view>
+   </view>
+</scroll-view>

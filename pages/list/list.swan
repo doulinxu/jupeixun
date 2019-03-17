@@ -1,0 +1,33 @@
+<scroll-view 
+  class="container"
+  style="height: 100%;"
+  scroll-y
+>
+   <view class="crumbs">
+      <view class="logo">
+          <image src="../../images/m_logo.png"></image>
+      </view>
+      <view>
+        作文
+      </view>
+      <view>
+        {{crumbs.name}}
+      </view>
+   </view>
+   <view>
+     <view class="list" s-for="lists" bindtap="changeUrl" data-pointUrl="/pages/detail/detail">
+       <view class="list-title">
+         {{item.title}}
+       </view>
+       <view class="list-abstract">
+         {{item.abstract}}
+       </view>
+       <view class="list-time">
+         {{item.time}}
+       </view>
+     </view>
+   </view>
+   <view class="pager">
+
+   </view>
+</scroll-view>
