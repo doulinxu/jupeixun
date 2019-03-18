@@ -25,10 +25,13 @@
         <text class="time">{{text.info.time}}<text>
         <text class="author">{{text.info.author}}</text>
     </view>
-    <view class="content">
+    <view class="content" id="content">
       <view s-for="text.content">
           {{item}}
       </view>
+    </view>
+    <view s-if='exceeding'>
+        查看更多
     </view>
     <view class="comment">
        <view>

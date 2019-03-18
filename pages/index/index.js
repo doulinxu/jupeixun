@@ -123,5 +123,29 @@ Page({
   },
   changeUrl(e){
      swan.navigateTo({url:e.currentTarget.dataset.pointUrl});
+  },
+  onLoad:function(){
+    var appInstance = getApp();
+    swan.request({
+      url: appInstance.api + '/index.action', 
+      method: 'GET',
+      dataType: 'json',
+      // data: {
+      //     key: 'value'
+      // },
+      header: {
+          'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+          var _data = res;
+          this.setData({
+            classes:_data,
+          })
+      },
+      fail: function (err) {
+          console.log('错误码：' + err.errCode);
+          console.log('错误信息：' + err.errMsg);
+      }
+    });
   }
 });
