@@ -33,6 +33,8 @@ Page({
     },
     onLoad:function(){
         let query = swan.createSelectorQuery();
-        query.select('#content').boundingClientRect();
+        query.select('#content').boundingClientRect((rect) =>{
+            rect.height
+        }).exec();
     }
 });
