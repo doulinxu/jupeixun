@@ -1,5 +1,6 @@
 Page({
   data:{
+    loading:true,
     picUrl:{
       logo:'../../images/logo.png',
       banner:"../../images/banner.png",
@@ -125,9 +126,14 @@ Page({
      swan.navigateTo({url:e.currentTarget.dataset.pointUrl});
   },
   onLoad:function(){
+    swan.showLoading({
+        title: '数据加载中',
+        mask: true
+    });
+    var _this = this;
     var appInstance = getApp();
     swan.request({
-      url: appInstance.api + '/index.action', 
+      url: appInstance.api + 'bdprogram/home/', 
       method: 'GET',
       dataType: 'json',
       // data: {
@@ -137,10 +143,17 @@ Page({
           'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-          var _data = res;
-          this.setData({
+        console.log(res);
+        if(res.statusCode === 200 && res.data.status === 200){
+          console.log(1);
+          var _data = res.data.data;
+          _this.setData({
             classes:_data,
-          })
+            loading:false,
+          });
+        }
+       swan.hideLoading();
+          
       },
       fail: function (err) {
           console.log('错误码：' + err.errCode);

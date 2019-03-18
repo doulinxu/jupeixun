@@ -34,21 +34,20 @@
     <view>
       <view s-for="classes" class="classes-item">
           <view class="classes-title">
-            <text class="title-text">{{item.title}}</text>
+            <text class="title-text">{{item.name}}</text>
             <text class="more" bindtap="changeUrl" data-pointUrl="/pages/list/list">更多</text>
           </view>
-          <view class="classes-banner" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+          <view class="classes-banner" bindtap="changeUrl" data-pointUrl="/pages/list/list?id={{item.id}}">
               <view class="banner-item" s-for="item.banner">
-                <image mode="widthFix" class="item-img" src="{{item.bannerUrl}}"></image>
-                <text class="item-text">{{item.bannerText}}</text>
+                <image mode="widthFix" class="item-img" src="{{item.img}}"></image>
+                <text class="item-text">{{item.title}}</text>
               </view>
-              
           </view>
           <view>
                 <view s-for="item.list" bindtap="changeUrl" data-pointUrl="/pages/list/list">
                   <view class="classes-list">
-                      <view class="list-title">{{item.listTitle}}</view>
-                      <view class="list-time">{{item.listTime}}</view>
+                      <view class="list-title">{{item.title}}</view>
+                      <view class="list-time">{{item.time}}</view>
                   </view>
                 </view>
               </view>
