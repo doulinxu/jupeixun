@@ -3,31 +3,32 @@
   style="height: 100%;"
   scroll-y
 >
+    <view class="loadingMask" s-if="loading"></view>
     <image class="logo" src="{{picUrl.logo}}"></image>  
     <image class="banner" src="{{picUrl.banner}}"></image>
    <view class="category">
-      <view class="primary" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="primary" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=4">
         小学作文
       </view>
-      <view class="junior" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="junior" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=2">
         初中作文
       </view>
-      <view class="high" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="high" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=3">
         高中作文
       </view>
-      <view class="unit" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="unit" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=229">
         单元作文
       </view>
-      <view class="english" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="english" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=199">
         英语作文
       </view>
-      <view class="source" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="source" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=178">
         作文素材
       </view>
-      <view class="guidance" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="guidance" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=222">
         写作指导
       </view>
-      <view class="meterial" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+      <view class="meterial" bindtap="changeUrl" data-pointUrl="/pages/list/list?id=178">
         写作素材
       </view>
     </view>
@@ -35,16 +36,16 @@
       <view s-for="classes" class="classes-item">
           <view class="classes-title">
             <text class="title-text">{{item.name}}</text>
-            <text class="more" bindtap="changeUrl" data-pointUrl="/pages/list/list">更多</text>
+            <text class="more" bindtap="changeUrl" data-pointUrl="/pages/list/list?id={{item.id}}">更多</text>
           </view>
-          <view class="classes-banner" bindtap="changeUrl" data-pointUrl="/pages/list/list?id={{item.id}}">
-              <view class="banner-item" s-for="item.banner">
+          <view class="classes-banner">
+              <view class="banner-item" s-for="item.banner"  bindtap="changeUrl" data-pointUrl="/pages/detail/detail?id={{item.id}}">
                 <image mode="widthFix" class="item-img" src="{{item.img}}"></image>
                 <text class="item-text">{{item.title}}</text>
               </view>
           </view>
           <view>
-                <view s-for="item.list" bindtap="changeUrl" data-pointUrl="/pages/list/list">
+                <view s-for="item.list" bindtap="changeUrl" data-pointUrl="/pages/detail/detail?id={{item.id}}">
                   <view class="classes-list">
                       <view class="list-title">{{item.title}}</view>
                       <view class="list-time">{{item.time}}</view>

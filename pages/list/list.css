@@ -2,7 +2,13 @@
   margin: 0;
   padding: 0;
 }
-
+.loadingMask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+}
 .crumbs{
   width:100%;
   height: 42px;

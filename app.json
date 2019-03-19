@@ -10,5 +10,10 @@
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "聚培训作文",
         "backgroundTextStyle": "light"
+    },
+    "url-mapping":{
+        "pages/index/index":"/",
+        "pages/list/list":"/list/c{id}/",
+        "pages/detail/detail":"/zuowen/{id}.html"
     }
 }

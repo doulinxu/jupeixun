@@ -3,19 +3,20 @@
   style="height: 100%;"
   scroll-y
 >
+<view class="loadingMask" s-if="loading"></view>
    <view class="crumbs">
-      <view class="logo">
+      <view class="logo" bindtap="returnIndex">
           <image src="../../images/m_logo.png"></image>
       </view>
-      <view>
+      <view bindtap="returnIndex">
         作文
       </view>
       <view>
-        {{crumbs.name}}
+        {{text.category}}
       </view>
    </view>
    <view class="text">
-     <view id="grade" class="{{text.grade}}">
+     <view id="grade" class="grade{{text.grade}}">
 
      </view>
     <view class="title">
@@ -25,35 +26,68 @@
         <text class="time">{{text.info.time}}<text>
         <text class="author">{{text.info.author}}</text>
     </view>
-    <view class="content" id="content">
-      <view s-for="text.content">
+    <view id="content" class="{{exceeding ? 'content exceeding' : 'content'}}">
+      <view s-for="text.text" class="text">
           {{item}}
       </view>
+      <view class="more-box" s-if='{{exceeding}}' bindtap="showAll" >
+        <view class="more-content">
+          <view class="more">
+            <view class="more-icon"></view>
+          </view>
+          查看更多
+        </view>
     </view>
-    <view s-if='exceeding'>
-        查看更多
     </view>
-    <view class="comment">
+    
+    <view class="comment" s-if="{{text.comment.length != 0}}" >
        <view>
          评语：
        </view>
        <text>
-         {{text.comment}}
+         {{text.comment.length === 0 ? "无":text.comment}}
        </text>
     </view>
    </view>
    <view class="navgitor">
      <view>
        上一篇：
-       <text>
-         {{text.prev.title}}
+       <text bindtap="nextOrPre" data-pointUrl="/pages/detail/detail?id={{text.pre.id}}">
+         {{text.pre.title}}
        </text>
      </view>
      <view>
        下一篇：
-       <text>
+       <text bindtap="nextOrPre" data-pointUrl="/pages/detail/detail?id={{text.next.id}}">
          {{text.next.title}}
        </text>
      </view>
+   
+   
    </view>
+  <view class="recommend" s-if="{{text.recommend.length > 0}}">
+     <view class="recommend-title">
+        <image src="../../images/about.png"></image>
+        <view>
+          <view>[{{text.title}}]</view>
+          相关推荐</view>
+     </view>
+     <view s-for="{{text.recommend}}" class="recommend-list" bindtap="nextOrPre" data-pointUrl="/pages/detail/detail?id={{item.id}}">
+        <image src="{{item.img}}"></image>
+        <view class="recommend-content">
+          <view class="recommend-name">
+            {{item.title}}
+          </view>
+          <view class="recommend-text">
+            {{item.intro}}
+          </view>
+        </view>
+     </view>
+  </view>
+  <view class="footer">
+         <view>
+           <image src="../../images/m_logo.png"></image>
+            聚培训作文
+         </view>
+      </view>
 </scroll-view>

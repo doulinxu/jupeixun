@@ -3,24 +3,25 @@
   style="height: 100%;"
   scroll-y
 >
+    <view class="loadingMask" s-if="loading"></view>
    <view class="crumbs">
-      <view class="logo">
+      <view class="logo" bindtap="returnIndex">
           <image src="../../images/m_logo.png"></image>
       </view>
-      <view>
+      <view bindtap="returnIndex">
         作文
       </view>
       <view>
-        {{crumbs.name}}
+        {{name}}
       </view>
    </view>
    <view>
-     <view class="list" s-for="lists" bindtap="changeUrl" data-pointUrl="/pages/detail/detail">
+     <view class="list" s-for="lists" bindtap="changeUrl" data-pointUrl="/pages/detail/detail?id={{item.id}}">
        <view class="list-title">
          {{item.title}}
        </view>
        <view class="list-abstract">
-         {{item.abstract}}
+         {{item.text}}
        </view>
        <view class="list-time">
          {{item.time}}
