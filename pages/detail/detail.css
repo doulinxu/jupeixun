@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
 }
-scroll-view{
-    padding-bottom:
+page{
+  height: 100%;
 }
 .loadingMask{
   position: absolute;
@@ -130,20 +130,18 @@ scroll-view{
     background: #3c91c7;
     border-radius: 50px;
     margin-right: 5px;
-    float: left;
     margin-top: 50px;
 }
 .more-icon{
         transition-duration: 0.5s;
     line-height: 28px;
-    display: inline-block;
     width: 9px;
     height: 9px;
     border-bottom: 1px solid #ffffff;
     border-right: 1px solid #ffffff;
     transform: rotate(45deg);
     margin: 2px 2px 0px 5px;
-    float: left;
+
 }
 .navgitor{
   border-top:8px solid #f2f2f2;
@@ -159,26 +157,29 @@ scroll-view{
 .navgitor text{
   color: #0086c5;
 }
+.recommend-title .about{
+    overflow: hidden;
+    width: 20px;
+    height:20px;
+    background: url('../../images/about.png') no-repeat 0 0;
+    position: relative;
+    margin-right:5px;
+    top:2px;
+}
 .recommend-title{
     color: #333;
     width: 90%;
     padding:15px 0;
-    float: left;
+    display: inline-block;
     padding-left: 15px;
     height: 24px;
     line-height: 24px;
     margin: 2%;
     margin-bottom: 0;
 }
-.recommend-title image{
-    width: 20px;
-    height:20px;
-    position: relative;
-    top: 3px;
-    margin-right:5px;
-}
+
 .recommend-list{
-    float: left;
+    display: inline-block;
     width: 100%;
     padding: 14px 0;
     border-top: 1px solid #f1f1f1;
@@ -191,13 +192,14 @@ scroll-view{
 .recommend-list image{
     width: 110px;
     height: 70px;
-    float: left;
+    display: inline-block;
     margin:0 10px;
 }
 .recommend-list .recommend-content{
     vertical-align: middle;
     width: calc(100vw - 130px);
-    float: left;
+    display: inline-block;
+    float: right;
     box-sizing: border-box;
 }
 .recommend-list .recommend-content view{
@@ -228,4 +230,13 @@ scroll-view{
   height:25px;
   position:relative;
   top:3px;
+}
+.recommend-title-text{
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.recommend-title view{
+    overflow: hidden;
 }

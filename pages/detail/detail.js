@@ -22,23 +22,23 @@ Page({
         swan.navigateBack();
     },
     onReady:function(){
-        const _this = this;
-        setTimeout(function() {
-            let query = swan.createSelectorQuery();
-            query.select('#content').fields({
-                size: true,
-            },function(res){
-                res.height
-            }).exec((res)=>{
-                let height = res[0].height;
-                if(height > 500){
-                    console.log(_this);
-                    _this.setData({
-                        exceeding:true,
-                    });
-                }
-            });
-        },500);
+        // const _this = this;
+        // setTimeout(function() {
+        //     let query = swan.createSelectorQuery();
+        //     query.select('#content').fields({
+        //         size: true,
+        //     },function(res){
+        //         res.height
+        //     }).exec((res)=>{
+        //         let height = res[0].height;
+        //         if(height > 500){
+        //             console.log(_this);
+        //             _this.setData({
+        //                 exceeding:true,
+        //             });
+        //         }
+        //     });
+        // },500);
     },
     onLoad:function(ops){
         swan.showLoading({
@@ -67,13 +67,62 @@ Page({
                 text:_data,
                 loading:false,
             });
+            swan.setPageInfo && swan.setPageInfo({
+                title: _data.seotitle,
+                keywords: _data.seokeywords,
+                description: _data.seodescription,
+                releaseDate: _data.pushtime,
+                success: function () {
+                    console.log('页面基础信息设置完成');
+                }
+            });
+            }else{
+                swan.showModal({
+                    title: '提示',
+                    content: '网络请求错误，请重新打开小程序',
+                    cancelColor: '#999999',
+                    success: function (res) {
+                        if (res.confirm) {
+                           
+                        }
+                    }
+                });
             }
             swan.hideLoading();
+            //超长隐藏
+            setTimeout(function() {
+                let query = swan.createSelectorQuery();
+                query.select('#content').fields({
+                    size: true,
+                },function(res){
+                    res.height
+                }).exec((res)=>{
+                    let height = res[0].height;
+                    if(height > 500){
+                        console.log(_this);
+                        _this.setData({
+                            exceeding:true,
+                        });
+                    }
+                });
+            },500);
+            
+
         },
         fail: function (err) {
             console.log('错误码：' + err.errCode);
             console.log('错误信息：' + err.errMsg);
+            swan.showModal({
+                    title: '提示',
+                    content: '网络请求错误，请重新打开小程序',
+                    cancelColor: '#999999',
+                    success: function (res) {
+                        if (res.confirm) {
+                           
+                        }
+                    }
+                });
         }
         });
-    }
+    },
 });

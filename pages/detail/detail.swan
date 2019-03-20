@@ -35,7 +35,7 @@
           <view class="more">
             <view class="more-icon"></view>
           </view>
-          查看更多
+          <view style="float:right;margin-right:5px;">查看更多</view>
         </view>
     </view>
     </view>
@@ -67,10 +67,12 @@
    </view>
   <view class="recommend" s-if="{{text.recommend.length > 0}}">
      <view class="recommend-title">
-        <image src="../../images/about.png"></image>
         <view>
-          <view>[{{text.title}}]</view>
-          相关推荐</view>
+           <view class='about'></view>
+          <view class="recommend-title-text">[{{text.title}}</view>
+          <view>]相关推荐</view>
+          
+          </view>
      </view>
      <view s-for="{{text.recommend}}" class="recommend-list" bindtap="nextOrPre" data-pointUrl="/pages/detail/detail?id={{item.id}}">
         <image src="{{item.img}}"></image>
